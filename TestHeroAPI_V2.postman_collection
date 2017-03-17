@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "TestHeroAPI V2",
-		"_postman_id": "717e3599-9a0b-7493-49fb-69a9d0254589",
+		"_postman_id": "589fbdb6-fc0e-9c93-a9b4-d79616b8c8c5",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -21,7 +21,18 @@
 								"exec": [
 									"tests[\"Status code should be 200\"] = responseCode.code === 200;",
 									"",
-									"tests[\"Headers should have Date \"] = postman.getResponseHeader(\"Date\");"
+									"tests[\"Headers should have user id \"] = responseBody.has(\"userId\");",
+									"",
+									"tests[\"Headers should have first name \"] = responseBody.has(\"fName\");",
+									"",
+									"tests[\"Headers should have last name \"] = responseBody.has(\"lName\");",
+									"",
+									"tests[\"Headers should have email \"] = responseBody.has(\"email\");",
+									"",
+									"tests[\"Headers should have name \"] = responseBody.has(\"name\");",
+									"",
+									"tests[\"Headers should have last login subject \"] = responseBody.has(\"lastLoginSubject\");",
+									""
 								]
 							}
 						}
@@ -49,7 +60,7 @@
 					},
 					"response": [
 						{
-							"id": "1bd30f12-29a6-4743-b0f2-ec28b045d062",
+							"id": "71f8c49d-0d5e-458c-b949-35867ce4ca3e",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -153,7 +164,7 @@
 					},
 					"response": [
 						{
-							"id": "99f5ec9f-c403-45ef-9266-451d8e450e6a",
+							"id": "ee0b4f7f-3036-4a3b-8de4-429b38d8dc8e",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -257,7 +268,7 @@
 					},
 					"response": [
 						{
-							"id": "c2874504-4f59-4ba3-9e5e-ceeee5800549",
+							"id": "82d56eae-9b62-4bdd-b7e2-162ee775a53c",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -334,7 +345,7 @@
 							"body": "{\n  \"status\": 200,\n  \"message\": \"ok\",\n  \"result\": {\n    \"exams\": [\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 4\",\n        \"id\": \"onHEAKorycFciXs5j\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"วิทยาศาสตร์ ม.6 ชุดที่ 3\",\n        \"id\": \"5Su433FmC5EJvWRhY\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"Select category please\",\n        \"id\": \"W6GTL8EZsTEi6pJF8\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 1\",\n        \"id\": \"Dz4kPcERZKwRJG6kA\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"ภาษาอังกฤษ ม.3 ชุดที่ 2\",\n        \"id\": \"i3oTnCSsRn67rL37N\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      }\n    ]\n  }\n}"
 						},
 						{
-							"id": "98235ea8-c44a-4566-bdb7-dd2116b1bfc9",
+							"id": "8d27f7ad-39bd-4fb9-bb47-b5fd4dc0005a",
 							"name": "toefl",
 							"originalRequest": {
 								"url": "{{url}}/{{version}}/exam/toefl",
@@ -438,7 +449,7 @@
 					},
 					"response": [
 						{
-							"id": "4ed0165e-06de-4922-b695-b1a4e30e4e4b",
+							"id": "d8c3e9c5-32fb-4fa6-84f8-b05fabe60d13",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -567,7 +578,7 @@
 					},
 					"response": [
 						{
-							"id": "fe793c69-7b4f-4fd4-a41c-fa042c00b0d4",
+							"id": "f43e6ded-a1e9-4919-84ff-fa399536478a",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -665,7 +676,7 @@
 					},
 					"response": [
 						{
-							"id": "44d64c42-f228-4cde-bbec-09ce8d17f55e",
+							"id": "e08998d5-b8bd-42be-aecb-bad9ba69966e",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -799,7 +810,7 @@
 					},
 					"response": [
 						{
-							"id": "2b3b657c-7365-4453-bc27-27bc3fa4e583",
+							"id": "397b34bb-aec1-4dbe-ab1a-63c6c55ca9ec",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -942,7 +953,7 @@
 					},
 					"response": [
 						{
-							"id": "f3fe3c9a-6ee0-42d3-807b-1d6a74d61f5b",
+							"id": "eaa8d0a0-9549-4d36-b6ac-33a24275bce5",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1045,7 +1056,7 @@
 					},
 					"response": [
 						{
-							"id": "bcaad24b-19c2-4117-95e1-80c2bb6d0e74",
+							"id": "4affd5a1-ca76-44ec-b89b-4a7305405b9e",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1142,13 +1153,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\" : \"nopparat@9picompany.com\"\n}"
+							"raw": "{\n    \"email\" : \"suprakorn.pi@gmail.com\"\n}"
 						},
 						"description": ""
 					},
 					"response": [
 						{
-							"id": "06b3566d-becc-4153-b5b7-121ca9f574ae",
+							"id": "434e24e8-7c61-4b1e-bff2-770ef8c2bae7",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1245,13 +1256,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\" : \"9pi.tutor@gmail.com\"\n}"
+							"raw": "{\n    \"email\" : \"suprakorn.pi@gmail.com\"\n}"
 						},
 						"description": ""
 					},
 					"response": [
 						{
-							"id": "510da1b8-4a7e-463b-897a-9af148148818",
+							"id": "b53a476c-5a4e-454f-88ec-030a6d5ec391",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1354,7 +1365,7 @@
 					},
 					"response": [
 						{
-							"id": "cb206eaf-e58c-4ea0-875f-88f5cb67f5c5",
+							"id": "3c32eec2-7952-4f93-b756-a2ffb9d6d75a",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1482,7 +1493,7 @@
 					},
 					"response": [
 						{
-							"id": "8ef4c52f-f509-4b51-acf1-1ad4345ee0f6",
+							"id": "03c0809c-77c3-4b3f-88a8-83dba4aeb575",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1892,7 +1903,7 @@
 					},
 					"response": [
 						{
-							"id": "54067fd3-6ca4-4a58-a666-b5342aa80b73",
+							"id": "5d5f77d2-9c8b-4ba5-91c3-f4c88674a812",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -2015,7 +2026,7 @@
 					},
 					"response": [
 						{
-							"id": "db11ba53-2ae3-4bf3-ac10-091104908e2c",
+							"id": "2caccc41-7f09-4105-8ec5-995fb4c4dc3a",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -2298,7 +2309,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"kunnikar@9picompany.com\"\n}"
+							"raw": "{\n\t\"email\": \"Suprakorn.pi@gmail.com\"\n}"
 						},
 						"description": ""
 					},
