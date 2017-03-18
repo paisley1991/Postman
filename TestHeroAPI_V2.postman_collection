@@ -1696,7 +1696,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\" : \"stu001@gmail.com\",\n    \"name\": \"m\",\n    \"facebookId\": \"6464656565656565\",\n    \"service\": \"facebook\"\n}"
+							"raw": "{\n    \"email\" : \"suprakorn.pi@gmail.com\",\n    \"name\": \"m\",\n    \"facebookId\": \"6464656565656565\",\n    \"service\": \"facebook\"\n}"
 						},
 						"description": ""
 					},
