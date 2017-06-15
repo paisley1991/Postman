@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "TestHeroAPI V2",
+		"name": "TestHeroAPI_V2",
 		"_postman_id": "589fbdb6-fc0e-9c93-a9b4-d79616b8c8c5",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -11,6 +11,133 @@
 			"name": "!CheckToken User",
 			"description": "",
 			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code should be 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Headers should have user id \"] = responseBody.has(\"userId\");",
+									"",
+									"tests[\"Headers should have first name \"] = responseBody.has(\"fName\");",
+									"",
+									"tests[\"Headers should have last name \"] = responseBody.has(\"lName\");",
+									"",
+									"tests[\"Headers should have email \"] = responseBody.has(\"email\");",
+									"",
+									"tests[\"Headers should have name \"] = responseBody.has(\"name\");",
+									"",
+									"tests[\"Headers should have last login subject \"] = responseBody.has(\"lastLoginSubject\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/{{version}}/student/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationDefault}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" :\"9pi.tutor@gmail.com\",\n\t\"password\" : \"111111\",\n\t\"service\" : \"email\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "5251ba5a-7cea-4538-be9f-14c8c6d58fbe",
+							"name": "get placement limit 5",
+							"originalRequest": {
+								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
+								"method": "GET",
+								"header": [
+									{
+										"key": "app-token",
+										"value": "va5AcCSNMzlhJxbO",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"name": "cache-control",
+									"key": "cache-control",
+									"value": "no-store",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"name": "connection",
+									"key": "connection",
+									"value": "keep-alive",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"name": "content-encoding",
+									"key": "content-encoding",
+									"value": "gzip",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"name": "content-type",
+									"key": "content-type",
+									"value": "application/json",
+									"description": "The mime type of this content"
+								},
+								{
+									"name": "date",
+									"key": "date",
+									"value": "Mon, 09 Jan 2017 04:36:30 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"name": "pragma",
+									"key": "pragma",
+									"value": "no-cache",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								},
+								{
+									"name": "transfer-encoding",
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"name": "vary",
+									"key": "vary",
+									"value": "Accept-Encoding",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": "421",
+							"body": "{\n  \"status\": 200,\n  \"message\": \"ok\",\n  \"result\": {\n    \"exams\": [\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 4\",\n        \"id\": \"onHEAKorycFciXs5j\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"วิทยาศาสตร์ ม.6 ชุดที่ 3\",\n        \"id\": \"5Su433FmC5EJvWRhY\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"Select category please\",\n        \"id\": \"W6GTL8EZsTEi6pJF8\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 1\",\n        \"id\": \"Dz4kPcERZKwRJG6kA\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"ภาษาอังกฤษ ม.3 ชุดที่ 2\",\n        \"id\": \"i3oTnCSsRn67rL37N\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
 				{
 					"name": "login token",
 					"event": [
@@ -60,7 +187,124 @@
 					},
 					"response": [
 						{
-							"id": "71f8c49d-0d5e-458c-b949-35867ce4ca3e",
+							"id": "d7ada49b-2464-4ed9-8031-7bb7de216585",
+							"name": "get placement limit 5",
+							"originalRequest": {
+								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
+								"method": "GET",
+								"header": [
+									{
+										"key": "app-token",
+										"value": "va5AcCSNMzlhJxbO",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"name": "cache-control",
+									"key": "cache-control",
+									"value": "no-store",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"name": "connection",
+									"key": "connection",
+									"value": "keep-alive",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"name": "content-encoding",
+									"key": "content-encoding",
+									"value": "gzip",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"name": "content-type",
+									"key": "content-type",
+									"value": "application/json",
+									"description": "The mime type of this content"
+								},
+								{
+									"name": "date",
+									"key": "date",
+									"value": "Mon, 09 Jan 2017 04:36:30 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"name": "pragma",
+									"key": "pragma",
+									"value": "no-cache",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								},
+								{
+									"name": "transfer-encoding",
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"name": "vary",
+									"key": "vary",
+									"value": "Accept-Encoding",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": "421",
+							"body": "{\n  \"status\": 200,\n  \"message\": \"ok\",\n  \"result\": {\n    \"exams\": [\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 4\",\n        \"id\": \"onHEAKorycFciXs5j\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"วิทยาศาสตร์ ม.6 ชุดที่ 3\",\n        \"id\": \"5Su433FmC5EJvWRhY\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"Select category please\",\n        \"id\": \"W6GTL8EZsTEi6pJF8\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 1\",\n        \"id\": \"Dz4kPcERZKwRJG6kA\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"ภาษาอังกฤษ ม.3 ชุดที่ 2\",\n        \"id\": \"i3oTnCSsRn67rL37N\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "login request authorize",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code should be 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Headers should have Authorization key\"] = responseBody.has(\"aut\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/{{version}}/aut/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationDefault}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" :\"9pi.tutor@gmail.com\",\n\t\"password\" : \"111111\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "d07b2062-7156-46ef-835a-788229935955",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -164,7 +408,7 @@
 					},
 					"response": [
 						{
-							"id": "ee0b4f7f-3036-4a3b-8de4-429b38d8dc8e",
+							"id": "bd56802b-b4c9-4c33-b8c9-a569054f074c",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -268,7 +512,7 @@
 					},
 					"response": [
 						{
-							"id": "82d56eae-9b62-4bdd-b7e2-162ee775a53c",
+							"id": "05e66731-32f2-4539-93e2-498d1f290eaf",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -345,7 +589,7 @@
 							"body": "{\n  \"status\": 200,\n  \"message\": \"ok\",\n  \"result\": {\n    \"exams\": [\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 4\",\n        \"id\": \"onHEAKorycFciXs5j\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"วิทยาศาสตร์ ม.6 ชุดที่ 3\",\n        \"id\": \"5Su433FmC5EJvWRhY\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"Select category please\",\n        \"id\": \"W6GTL8EZsTEi6pJF8\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"สังคมศึกษา ม.3 ชุดที่ 1\",\n        \"id\": \"Dz4kPcERZKwRJG6kA\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      },\n      {\n        \"title\": \"ภาษาอังกฤษ ม.3 ชุดที่ 2\",\n        \"id\": \"i3oTnCSsRn67rL37N\",\n        \"taken_total\": 0,\n        \"review_total\": 0\n      }\n    ]\n  }\n}"
 						},
 						{
-							"id": "8d27f7ad-39bd-4fb9-bb47-b5fd4dc0005a",
+							"id": "4beeafbd-6a5a-4f70-baa7-7675c4417b48",
 							"name": "toefl",
 							"originalRequest": {
 								"url": "{{url}}/{{version}}/exam/toefl",
@@ -449,7 +693,7 @@
 					},
 					"response": [
 						{
-							"id": "d8c3e9c5-32fb-4fa6-84f8-b05fabe60d13",
+							"id": "fcf4ec86-f3e6-4121-a165-30d9b012be8c",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -578,7 +822,7 @@
 					},
 					"response": [
 						{
-							"id": "f43e6ded-a1e9-4919-84ff-fa399536478a",
+							"id": "8064ca36-fd85-4176-85b8-9e1ad53630d3",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -676,7 +920,7 @@
 					},
 					"response": [
 						{
-							"id": "e08998d5-b8bd-42be-aecb-bad9ba69966e",
+							"id": "e4c1bdb4-5e3a-4add-8b1c-dc1805d3278b",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -810,7 +1054,7 @@
 					},
 					"response": [
 						{
-							"id": "397b34bb-aec1-4dbe-ab1a-63c6c55ca9ec",
+							"id": "6ea4fefd-383f-4cec-8ec0-6ba9c9ea69e5",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -953,7 +1197,7 @@
 					},
 					"response": [
 						{
-							"id": "eaa8d0a0-9549-4d36-b6ac-33a24275bce5",
+							"id": "de487a17-9991-425b-99fc-a0152f9cb14f",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1056,7 +1300,7 @@
 					},
 					"response": [
 						{
-							"id": "4affd5a1-ca76-44ec-b89b-4a7305405b9e",
+							"id": "1f31204e-b626-4e94-b168-35a3e537bdf1",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1159,7 +1403,7 @@
 					},
 					"response": [
 						{
-							"id": "434e24e8-7c61-4b1e-bff2-770ef8c2bae7",
+							"id": "5ead6162-0614-46de-b66c-cec93f83ff17",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1262,7 +1506,7 @@
 					},
 					"response": [
 						{
-							"id": "b53a476c-5a4e-454f-88ec-030a6d5ec391",
+							"id": "da07e595-b871-4454-a8bd-c78736534bd9",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1365,7 +1609,7 @@
 					},
 					"response": [
 						{
-							"id": "3c32eec2-7952-4f93-b756-a2ffb9d6d75a",
+							"id": "5de9798d-d84c-43e2-b957-d9943556dfb9",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1493,7 +1737,7 @@
 					},
 					"response": [
 						{
-							"id": "03c0809c-77c3-4b3f-88a8-83dba4aeb575",
+							"id": "88988099-f889-46b3-8ea8-abeb49d63537",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -1696,7 +1940,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\" : \"suprakorn.pi@gmail.com\",\n    \"name\": \"m\",\n    \"facebookId\": \"6464656565656565\",\n    \"service\": \"facebook\"\n}"
+							"raw": "{\n    \"email\" : \"stu001@gmail.com\",\n    \"name\": \"m\",\n    \"facebookId\": \"6464656565656565\",\n    \"service\": \"facebook\"\n}"
 						},
 						"description": ""
 					},
@@ -1903,7 +2147,7 @@
 					},
 					"response": [
 						{
-							"id": "5d5f77d2-9c8b-4ba5-91c3-f4c88674a812",
+							"id": "1091d749-7356-4d12-8ebe-16dcdd766a04",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -2026,7 +2270,7 @@
 					},
 					"response": [
 						{
-							"id": "2caccc41-7f09-4105-8ec5-995fb4c4dc3a",
+							"id": "525e612b-f2c0-463b-8ed7-2017f01abd66",
 							"name": "get placement limit 5",
 							"originalRequest": {
 								"url": "http://localhost:3000/testhero/placementtest?fields=id,title&limit=5",
@@ -2174,12 +2418,12 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "26ed31a619d4061c723bcc2fd991e67c",
+								"value": "937fa1643f31a1d6509625d38c8db8ad",
 								"description": ""
 							},
 							{
 								"key": "emailToken",
-								"value": "",
+								"value": " ",
 								"description": ""
 							}
 						],
@@ -2230,7 +2474,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"9pi.tutor@gmail.com\"\n}"
+							"raw": "{\n\t\"email\": \"suprakorn@9picompany.com\"\n}"
 						},
 						"description": ""
 					},
@@ -2248,21 +2492,18 @@
 								{
 									"key": "file",
 									"type": "file",
-									"enabled": true,
 									"src": "Exam Import Reading.csv",
 									"value": ""
 								},
 								{
 									"key": "category",
 									"value": "toeic",
-									"type": "text",
-									"enabled": true
+									"type": "text"
 								},
 								{
 									"key": "subject",
 									"value": "reading",
-									"type": "text",
-									"enabled": true
+									"type": "text"
 								}
 							]
 						},
